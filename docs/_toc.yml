@@ -1,0 +1,26 @@
+format: jb-book
+root: index
+options:
+    numbered: True
+chapters: 
+- file: ml/index
+  sections:
+    - file: ml/types
+    - file: ml/metrics
+    - file: ml/validation
+    - file: ml/ex-lm
+    - file: ml/ex-logistic_regression
+    - file: ml/ex-perceptron
+    - file: ml/ex-nn
+- file: dl/index
+  sections:
+    - file: dl/dnn
+    - file: dl/cnn
+    - file: dl/gan
+    - file: dl/rnn
+    - file: dl/lstm
+    - file: dl/gru
+- file: appendix/index
+  sections:
+    - file: appendix/conda
+- file: genindex
