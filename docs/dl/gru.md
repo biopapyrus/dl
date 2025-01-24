@@ -81,6 +81,9 @@ $$
 この式により、現在の状態と前の状態が適切な割合で混合され、それが新しい状態として出力され、また、次の時刻に引き継がれます。
 
 
+## 参照文献
+
+
 ```{bibliography} ../references.bib
 :filter: docname in docnames
 :style: plain
