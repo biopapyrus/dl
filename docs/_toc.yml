@@ -30,10 +30,19 @@ chapters:
 - file: det/index
   sections:
     - file: det/architectures
+    - file: det/metrics
     - file: det/ex-labelstudio
+    - file: det/ex-polyp_detection
+    - file: det/ex-bloodcell_detection
+- file: segm/index
+  sections:
+    - file: segm/architectures
+    - file: segm/ex-teeth_segmentation
+    - file: segm/ex-polyp_segmentation
 - file: appendix/index
   sections:
     - file: appendix/cuda
     - file: appendix/docker
     - file: appendix/conda
+    - file: appendix/mmdet
 - file: genindex

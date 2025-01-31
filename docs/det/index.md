@@ -1,7 +1,21 @@
 # 物体検出
 
 
-物体検出タスクでは、画像内に存在する物体を分類するだけでなく、それらの物体がどこにあるのか（バウンディングボックスの座標）を特定する必要があります。初期の物体検出手法では、物体らしき領域を推定して切り出し、その領域を分類する two-stage method が一般的でした。代表的な手法として Faster R-CNN {cite}`ref_fasterrcnn` が挙げられます。その後、計算リソースの制約を考慮し、物体の座標推定と分類を一度に最適化する one-stage method が登場しました。代表的な手法には、YOLO（You Only Look Once）{cite}`ref_yolo` や SSD（Single Shot MultiBox Detector）{cite}`ref_ssd` があります。Two-stage method と one-stage method は、目的によって使い分けられています。例えば、精度が最優先されるタスク（医療画像解析や高精度な監視システムなど）では two-stage method が選ばれることが多い一方、リアルタイム性が求められるタスクでは one-stage method が適しています。
+物体検出タスクでは、画像内に存在する物体を分類するだけでなく、それらの物体が存在している位置を囲んだ矩形（バウンディングボックス）の座標を特定する必要があります。このタスクには、物体の位置検出と種類判別を分けて行う two-stage method と、両者を同時に行う one-stage method の2つのアプローチがあります。
+
+
+初期の物体検出手法では、まず物体らしき領域を推定し、その領域を切り出して分類を行う two-stage method が主流でした。この手法の代表例が Faster R-CNN {cite}`ref_fasterrcnn` です。一方で、計算リソースの制約や処理速度の向上を考慮し、物体の座標推定と分類を一度に最適化する one-stage method が登場しました。代表的な手法には、YOLO（You Only Look Once） {cite}`ref_yolo` や SSD（Single Shot MultiBox Detector） {cite}`ref_ssd` があります。
+
+
+```{figure} ../_static/object_detection_arches.png
+---
+name: fig-objdet_archs
+width: 90%
+---
+
+物体検出および領域抽出のアーキテクチャ。
+```
+
 
 
 
