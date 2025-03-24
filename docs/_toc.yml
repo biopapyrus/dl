@@ -27,6 +27,7 @@ chapters:
     - file: cls/ex-eye_diseases_diagnosis
     - file: cls/ex-endoscopic_diagnosis
     - file: cls/ex-chestxray_pneumonia_diagnosis
+    - file: cls/ex-moth_classification
 - file: det/index
   sections:
     - file: det/architectures
@@ -34,6 +35,7 @@ chapters:
     - file: det/ex-labelstudio
     - file: det/ex-polyp_detection
     - file: det/ex-bloodcell_detection
+    - file: det/ex-wheat_heading_detection.ipynb
 - file: segm/index
   sections:
     - file: segm/architectures
