@@ -1,0 +1,50 @@
+format: jb-book
+root: index
+options:
+    numbered: True
+chapters: 
+- file: ml/index
+  sections:
+    - file: ml/types
+    - file: ml/metrics
+    - file: ml/validation
+    - file: ml/ex-lm
+    - file: ml/ex-logistic_regression
+    - file: ml/ex-perceptron
+    - file: ml/ex-nn
+- file: dl/index
+  sections:
+    - file: dl/dnn
+    - file: dl/cnn
+    - file: dl/gan
+    - file: dl/rnn
+    - file: dl/lstm
+    - file: dl/gru
+- file: cls/index
+  sections:
+    - file: cls/architectures
+    - file: cls/ex-cnn
+    - file: cls/ex-eye_diseases_diagnosis
+    - file: cls/ex-endoscopic_diagnosis
+    - file: cls/ex-chestxray_pneumonia_diagnosis
+    - file: cls/ex-moth_classification
+- file: det/index
+  sections:
+    - file: det/architectures
+    - file: det/metrics
+    - file: det/ex-labelstudio
+    - file: det/ex-polyp_detection
+    - file: det/ex-bloodcell_detection
+    - file: det/ex-wheat_heading_detection.ipynb
+- file: segm/index
+  sections:
+    - file: segm/architectures
+    - file: segm/ex-teeth_segmentation
+    - file: segm/ex-polyp_segmentation
+- file: appendix/index
+  sections:
+    - file: appendix/cuda
+    - file: appendix/docker
+    - file: appendix/conda
+    - file: appendix/mmdet
+- file: genindex
