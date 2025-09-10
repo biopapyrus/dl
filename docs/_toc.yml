@@ -41,6 +41,12 @@ chapters:
     - file: segm/architectures
     - file: segm/ex-teeth_segmentation
     - file: segm/ex-polyp_segmentation
+- file: labelstudio/index
+  sections:
+    - file: labelstudio/settings
+    - file: labelstudio/labeling
+    - file: labelstudio/export
+    - file: labelstudio/ml_assisted_labeling
 - file: appendix/index
   sections:
     - file: appendix/cuda

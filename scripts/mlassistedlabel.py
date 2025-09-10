@@ -10,6 +10,7 @@ import label_studio_ml.api
 
 
 ML_BACKEND_PATH = ''
+LS_DATA_DIR = ''
 
 
 def fasterrcnn(num_classes, weights=None):
@@ -51,7 +52,6 @@ class MLBASE(label_studio_ml.model.LabelStudioMLBase):
         target_images = []
         for task in tasks:
             target_images.append(self.__abspath(task['data']['image']))
-        print(target_images)
 
         input_tensors = self.__transform(target_images)
 
@@ -66,9 +66,17 @@ class MLBASE(label_studio_ml.model.LabelStudioMLBase):
 
         
     def __abspath(self, filename):
-        filename = filename.replace('/data/local-files/?d=', '')
-        if self.LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT is not None:
-            filename = os.path.join(self.LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT, filename)
+        if '/data/local-files/?d=' in filename:
+            filename = filename.replace('/data/local-files/?d=', '')
+            if self.LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT is not None:
+                filename = os.path.join(self.LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT, filename)
+        elif '/data/upload/' in filename:
+            filename = filename.replace('/data/', '')
+            filename = os.path.join(LS_DATA_DIR, 'media', filename)
+        else:
+            print('Warning: cannot recognize the file path format.')
+            print(filename)
+            print('-----------')
         return urllib.parse.unquote(filename)
     
 
@@ -127,16 +135,14 @@ if __name__ == '__main__':
     parser.add_argument('--host', type=str, default='0.0.0.0')
     parser.add_argument('--port', type=int, default=8082)
     parser.add_argument('--weight', type=str, required=True)
+    parser.add_argument('--data-dir', type=str, required=True)
     args = parser.parse_args()
 
     ML_BACKEND_PATH = args.weight
+    LS_DATA_DIR = args.data_dir
     app = label_studio_ml.api.init_app(
         model_class=MLBASE,
         model_dir=os.path.dirname(__file__)
     )
     app.run(host=args.host, port=args.port, debug=True)
-
-
-
-
 
